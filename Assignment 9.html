@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Student Registration</title>
+ <style>
+ body {
+ font-family: Arial, sans-serif;
+ margin: 40px;
+ background-color: #f4f4f4;
+}
+.container {
+max-width: 400px;
+background: white;
+ padding: 20px;
+            border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        label {
+            font-weight: bold;
+            display: block;
+            margin-top: 10px;
+        }
+        input, select {
+            width: 100%;
+            padding: 8px;
+            margin-top: 5px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        button {
+            background: #28a745;
+            color: white;
+            padding: 10px;
+            border: none;
+            margin-top: 15px;
+            cursor: pointer;
+            width: 100%;
+        }
+        button:hover {
+            background: #218838;
+        }
+        .output {
+            margin-top: 20px;
+            padding: 10px;
+            background: #fff3cd;
+            border-left: 5px solid #ffeb3b;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h2>Student Registration</h2>
+        <form id="studentForm">
+            <label for="name">Full Name</label>
+            <input type="text" id="name" required>
+
+            <label for="age">Age</label>
+            <input type="number" id="age" required>
+
+            <label for="email">Email</label>
+            <input type="email" id="email" required>
+
+            <label for="course">Course</label>
+            <select id="course" required>
+                <option value="Computer Science">Computer Science</option>
+                <option value="Business Administration">Business Administration</option>
+                <option value="Electrical Engineering">Electrical Engineering</option>
+                <option value="Mechanical Engineering">Mechanical Engineering</option>
+            </select>
+
+            <button type="button" onclick="registerStudent()">Register</button>
+        </form>
+
+        <div id="output" class="output" style="display:none;"></div>
+    </div>
+
+    <script>
+        function registerStudent() {
+            
+            let student = {
+                name: document.getElementById('name').value,
+                age: document.getElementById('age').value,
+                email: document.getElementById('email').value,
+                course: document.getElementById('course').value
+            };
+
+            
+            let outputDiv = document.getElementById('output');
+            outputDiv.style.display = "block";
+            outputDiv.innerHTML = `<h3>Registration Successful</h3>
+                                   <p><strong>Name:</strong> ${student.name}</p>
+                                   <p><strong>Age:</strong> ${student.age}</p>
+                                   <p><strong>Email:</strong> ${student.email}</p>
+                                   <p><strong>Course:</strong> ${student.course}</p>`;
+        }
+    </script>
+
+</body>
+</html>
